@@ -4,6 +4,8 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import { galleryItems } from './gallery-items';
 // Change code below this line
 const ulElement = document.querySelector('.gallery');
+ulElement.style.cssText = ('list-style: none;');
+
 function galleryCreate(items) {
     return items
     .map(({ preview, original, description }) => ` 
@@ -26,5 +28,4 @@ new SimpleLightbox(".gallery a", {
     captionsData: "alt",
     captionDelay: 250
 });
-
 

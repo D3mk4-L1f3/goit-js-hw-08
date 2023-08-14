@@ -3,10 +3,6 @@
   --animation-duration: 250ms;
 }
 
-ul {
-  list-style: none;
-}
-
 .gallery {
   display: grid;
   max-width: 1140px;
