@@ -16,7 +16,6 @@ let feedbackState = JSON.parse(savedFeedbackState) ?? {
   email: '',
   message: '',
 };
-formWithSavedValue();
 
 function onFormInput(evt) {
   const { name, value } = evt.target;
@@ -26,19 +25,20 @@ function onFormInput(evt) {
 function onFormSubmit(evt) {
   evt.preventDefault();
 
-  const isFieldsFilled = refs.emailInput.value && refs.messageInput.value;
+  const isInputFilled = refs.emailInput.value && refs.messageInput.value;
 
-  if (isFieldsFilled) {
-    console.log(feedbackState);
+  if (!isInputFilled) {
+    alert('You should fill the EMAIL and write some MESSAGE!!!');
+  } else {
     localStorage.removeItem(STORAGE_KEY);
     feedbackState = { email: '', message: '' };
     refs.form.reset();
-  } else {
-    alert('You should fill the EMAIL and write some MESSAGE!!!');
   }
 }
-function formWithSavedValue() {
+function savedValueForm() {
   refs.emailInput.value = feedbackState.email || '';
   refs.messageInput.value = feedbackState.message || '';
 }
+
+savedValueForm();
 
