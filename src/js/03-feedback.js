@@ -30,6 +30,7 @@ function onFormSubmit(evt) {
   if (!isInputFilled) {
     alert('You should fill the EMAIL and write some MESSAGE!!!');
   } else {
+    console.log(feedbackState);
     localStorage.removeItem(STORAGE_KEY);
     feedbackState = { email: '', message: '' };
     refs.form.reset();
@@ -39,6 +40,6 @@ function savedValueForm() {
   refs.emailInput.value = feedbackState.email || '';
   refs.messageInput.value = feedbackState.message || '';
 }
-
 savedValueForm();
+
 
